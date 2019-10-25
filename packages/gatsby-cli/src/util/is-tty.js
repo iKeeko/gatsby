@@ -1,4 +1,4 @@
-const isCI = require(`ci-info`).isCI
+const { isCI } = require(`gatsby-core-utils`)
 
 // Some CI pipelines incorrectly report process.stdout.isTTY status,
 // which causes unwanted lines in the output. An additional check for isCI helps.

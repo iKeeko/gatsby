@@ -11,7 +11,7 @@ describe(`isTTY`, () => {
 
   it(`returns true if not on ci & TTY is enabled`, () => {
     process.stdout.isTTY = true
-    jest.mock(`ci-info`, () => {
+    jest.mock(`gatsby-core-utils`, () => {
       return { isCI: false }
     })
     const isTTY = require(`../is-tty`)
@@ -20,7 +20,7 @@ describe(`isTTY`, () => {
 
   it(`returns false if not on ci & TTY is disabled`, () => {
     process.stdout.isTTY = false
-    jest.mock(`ci-info`, () => {
+    jest.mock(`gatsby-core-utils`, () => {
       return { isCI: false }
     })
     const isTTY = require(`../is-tty`)
@@ -29,7 +29,7 @@ describe(`isTTY`, () => {
 
   it(`returns false if on ci & TTY is enabled`, () => {
     process.stdout.isTTY = true
-    jest.mock(`ci-info`, () => {
+    jest.mock(`gatsby-core-utils`, () => {
       return { isCI: true }
     })
     const isTTY = require(`../is-tty`)
@@ -38,7 +38,7 @@ describe(`isTTY`, () => {
 
   it(`returns false if on ci & TTY is disabled`, () => {
     process.stdout.isTTY = false
-    jest.mock(`ci-info`, () => {
+    jest.mock(`gatsby-core-utils`, () => {
       return { isCI: true }
     })
     const isTTY = require(`../is-tty`)
